@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🐾 반려동물 장례식장 정보 웹 서비스
+반려동물 보호자를 위한 장례식장 정보를 지역별, 가격별, 서비스 조건별로 쉽게 비교하고 찾아볼 수 있는 웹 서비스입니다.
 
-## Getting Started
+📌 프로젝트 목적
+반려동물의 마지막 순간을 함께할 수 있는 장례식장을 쉽게 찾을 수 있도록 정보 제공
 
-First, run the development server:
+합법 인증, 반려동물 택시 지원 여부 등 실질적인 기준을 기반으로 한 비교 가능
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+초기 MVP 수준으로 정적인 데이터를 기반으로 리스트 및 필터 기능 구현
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+💻 기술 스택
+Frontend: React + TypeScript + Next.js
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Backend: Supabase
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+배포 환경: Vercel
 
-## Learn More
+UI: Tailwind CSS
 
-To learn more about Next.js, take a look at the following resources:
+데이터 관리: 정적 JSON / TypeScript 배열
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+지도 연동 (옵션): Kakao Map 또는 Google Maps API
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+🧩 주요 기능 (MVP 기준)
+✅ 장례식장 리스트 보기
 
-## Deploy on Vercel
+✅ 가격순 / 위치순 / 서비스 조건별 정렬
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+✅ 반려동물 택시 지원 여부 필터링
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+✅ 합법 인증 여부 필터링
+
+✅ 장례식장 상세 정보 페이지 (준비 예정)
