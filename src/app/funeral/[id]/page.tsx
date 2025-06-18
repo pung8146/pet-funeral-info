@@ -8,6 +8,13 @@ type Props = {
   }>;
 };
 
+// 정적 사이트 생성을 위한 함수
+export async function generateStaticParams() {
+  return funeralHomes.map((home) => ({
+    id: home.id.toString(),
+  }));
+}
+
 export default async function FuneralDetailPage({ params }: Props) {
   const { id } = await params;
   const funeralHome = funeralHomes.find((home) => home.id === parseInt(id));
