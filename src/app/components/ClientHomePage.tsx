@@ -1,20 +1,26 @@
-'use client';
+"use client";
 
-import { useState, useMemo } from 'react';
-import FuneralHomeList from './FuneralHomeList';
-import Filters from './Filters';
-import SortOptions from './SortOptions';
-import { funeralHomes } from '../funeralData';
+import { useState, useMemo } from "react";
+import FuneralHomeList from "./FuneralHomeList";
+import Filters from "./Filters";
+import SortOptions from "./SortOptions";
+import { funeralHomes } from "../funeralData";
 
-type SortOption = 'name' | 'price' | 'region';
+type SortOption = "name" | "price" | "region";
 
 export default function ClientHomePage() {
   const [showCertifiedOnly, setShowCertifiedOnly] = useState(false);
   const [showPetTaxiOnly, setShowPetTaxiOnly] = useState(false);
-  const [sortBy, setSortBy] = useState<SortOption>('name');
+  const [selectedRegion, setSelectedRegion] = useState("전체");
+  const [sortBy, setSortBy] = useState<SortOption>("name");
 
   const filteredAndSortedHomes = useMemo(() => {
     let filtered = funeralHomes;
+
+    // 지역 필터
+    if (selectedRegion !== "전체") {
+      filtered = filtered.filter((home) => home.region === selectedRegion);
+    }
 
     if (showCertifiedOnly) {
       filtered = filtered.filter((home) => home.isCertified);
@@ -26,17 +32,17 @@ export default function ClientHomePage() {
 
     return filtered.sort((a, b) => {
       switch (sortBy) {
-        case 'name':
+        case "name":
           return a.name.localeCompare(b.name);
-        case 'price':
+        case "price":
           return a.price - b.price;
-        case 'region':
+        case "region":
           return a.region.localeCompare(b.region);
         default:
           return 0;
       }
     });
-  }, [showCertifiedOnly, showPetTaxiOnly, sortBy]);
+  }, [showCertifiedOnly, showPetTaxiOnly, selectedRegion, sortBy]);
 
   return (
     <div className="grid lg:grid-cols-4 gap-8">
@@ -46,8 +52,10 @@ export default function ClientHomePage() {
           <Filters
             showCertifiedOnly={showCertifiedOnly}
             showPetTaxiOnly={showPetTaxiOnly}
+            selectedRegion={selectedRegion}
             onCertifiedChange={setShowCertifiedOnly}
             onPetTaxiChange={setShowPetTaxiOnly}
+            onRegionChange={setSelectedRegion}
           />
           <SortOptions sortBy={sortBy} onSortChange={setSortBy} />
         </div>
