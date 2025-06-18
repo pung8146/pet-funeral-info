@@ -8,24 +8,24 @@ type FilterProps = {
 };
 
 const KOREA_REGIONS = [
-  '전체',
-  '서울',
-  '부산',
-  '대구',
-  '인천',
-  '광주',
-  '대전',
-  '울산',
-  '세종시',
-  '경기도',
-  '강원도',    
-  '충청북도',
-  '충청남도',
-  '전라북도',   
-  '전라남도',
-  '경상북도',
-  '경상남도',
-  '제주도'
+  "전체",
+  "서울",
+  "부산",
+  "대구",
+  "인천",
+  "광주",
+  "대전",
+  "울산",
+  "세종시",
+  "경기도",
+  "강원도",
+  "충청북도",
+  "충청남도",
+  "전라북도",
+  "전라남도",
+  "경상북도",
+  "경상남도",
+  "제주도",
 ];
 
 export default function Filters({
@@ -45,7 +45,10 @@ export default function Filters({
           <h3 className="text-lg font-medium text-gray-900 mb-3">지역</h3>
           <div className="space-y-2 max-h-48 overflow-y-auto">
             {KOREA_REGIONS.map((region) => (
-              <label key={region} className="flex items-center cursor-pointer group">
+              <label
+                key={region}
+                className="flex items-center cursor-pointer group"
+              >
                 <div className="relative">
                   <input
                     type="radio"
@@ -58,8 +61,8 @@ export default function Filters({
                   <div
                     className={`w-4 h-4 border-2 rounded-full transition-colors ${
                       selectedRegion === region
-                        ? 'bg-blue-600 border-blue-600'
-                        : 'border-gray-300 group-hover:border-blue-400'
+                        ? "bg-blue-600 border-blue-600"
+                        : "border-gray-300 group-hover:border-blue-400"
                     }`}
                   >
                     {selectedRegion === region && (
@@ -88,8 +91,8 @@ export default function Filters({
               <div
                 className={`w-5 h-5 border-2 rounded transition-colors ${
                   showCertifiedOnly
-                    ? 'bg-blue-600 border-blue-600'
-                    : 'border-gray-300 group-hover:border-blue-400'
+                    ? "bg-blue-600 border-blue-600"
+                    : "border-gray-300 group-hover:border-blue-400"
                 }`}
               >
                 {showCertifiedOnly && (
@@ -123,8 +126,8 @@ export default function Filters({
               <div
                 className={`w-5 h-5 border-2 rounded transition-colors ${
                   showPetTaxiOnly
-                    ? 'bg-blue-600 border-blue-600'
-                    : 'border-gray-300 group-hover:border-blue-400'
+                    ? "bg-blue-600 border-blue-600"
+                    : "border-gray-300 group-hover:border-blue-400"
                 }`}
               >
                 {showPetTaxiOnly && (
