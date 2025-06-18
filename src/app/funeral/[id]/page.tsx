@@ -3,15 +3,14 @@ import { funeralHomes } from '../../funeralData';
 import Link from 'next/link';
 
 type Props = {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 };
 
-export default function FuneralDetailPage({ params }: Props) {
-  const funeralHome = funeralHomes.find(
-    (home) => home.id === parseInt(params.id)
-  );
+export default async function FuneralDetailPage({ params }: Props) {
+  const { id } = await params;
+  const funeralHome = funeralHomes.find((home) => home.id === parseInt(id));
 
   if (!funeralHome) {
     notFound();
